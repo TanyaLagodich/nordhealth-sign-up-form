@@ -6,6 +6,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "types": ["@provetcloud/web-components-vue-types"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

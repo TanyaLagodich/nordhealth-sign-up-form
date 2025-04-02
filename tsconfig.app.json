@@ -3,7 +3,10 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "types": ["@provetcloud/web-components-vue-types"],
-
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
