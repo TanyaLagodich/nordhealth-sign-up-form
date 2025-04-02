@@ -1,10 +1,10 @@
+<script setup lang="ts">
+import { Header } from '@/components/header';
+</script>
+
 <template>
   <provet-layout padding="none">
-    <template v-slot:top-bar>
-      <provet-top-bar>
-        <img src="/public/logo.svg" alt="logo" />
-      </provet-top-bar>
-    </template>
+    <Header />
     <RouterView />
   </provet-layout>
 </template>
@@ -15,4 +15,3 @@
   width: 100%;
 }
 </style>
-<script setup lang="ts"></script>

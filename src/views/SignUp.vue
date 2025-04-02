@@ -1,19 +1,19 @@
 <template>
   <provet-card padding="l" style="max-width: 400px; margin: var(--n-space-xl) auto">
-    <template v-slot:header>
-      <h1>Sign up to Nord</h1>
-    </template>
+    <h1>Sign up</h1>
     <form @submit.prevent="handleSubmit">
       <provet-stack>
         <provet-input
           v-model="data.email"
           label="Email"
           type="email"
-          required="true"
+          required
           :error="errors.email"
           style="--n-input-inline-size: 100%"
           @input="errors.email = undefined"
-        />
+        >
+          <provet-icon slot="start" name="interface-email" />
+        </provet-input>
         <InputPassword v-model="data.password" label="Password" :error="errors.password" />
 
         <provet-checkbox
