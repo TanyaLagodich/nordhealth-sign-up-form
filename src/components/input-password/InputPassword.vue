@@ -21,17 +21,12 @@ const inputType = computed(() => (isPasswordVisible.value ? 'text' : 'password')
     v-model="password"
     :label="label"
     :type="inputType"
-    required="true"
+    :required="true"
     :error="error"
     style="--n-input-inline-size: 100%"
   >
     <provet-icon slot="start" name="interface-password" />
-    <provet-button
-      aria-describedby="password-tooltip"
-      square
-      slot="end"
-      @click.prevent="isPasswordVisible = !isPasswordVisible"
-    >
+    <provet-button slot="end" square @click.prevent="isPasswordVisible = !isPasswordVisible">
       <provet-icon :name="visibilityIcon" />
     </provet-button>
   </provet-input>

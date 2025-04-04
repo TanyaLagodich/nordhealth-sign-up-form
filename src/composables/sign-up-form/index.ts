@@ -4,14 +4,13 @@ import { useRouter } from 'vue-router';
 interface FormData {
   email: string;
   password: string;
-  confirmPassword: string;
   receiveUpdates: boolean;
 }
 
 interface FormErrors {
-  email: string;
-  password: string;
-  confirmPassword: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
 }
 
 export const useSignUpForm = () => {
@@ -26,8 +25,9 @@ export const useSignUpForm = () => {
   const errors = ref<FormErrors>({
     email: undefined,
     password: undefined,
-    confirmPassword: undefined,
   });
+
+  const formError = ref<string | null>(null);
 
   const isLoading = ref(false);
 
@@ -36,6 +36,8 @@ export const useSignUpForm = () => {
       email: undefined,
       password: undefined,
     };
+
+    formError.value = null;
   };
 
   const submitToApi = async (formData: Omit<FormData, 'confirmPassword'>) => {
@@ -61,20 +63,6 @@ export const useSignUpForm = () => {
     if (!data.value.password) {
       errors.value.password = 'Password is required';
       isValid = false;
-    } else if (data.value.password.length < 8) {
-      errors.value.password = 'Password must be at least 8 characters long';
-      isValid = false;
-    } else if (!/[a-zA-Z]/.test(data.value.password) || !/[0-9]/.test(data.value.password)) {
-      errors.value.password = 'Password must include both letters and numbers';
-      isValid = false;
-    }
-
-    if (!data.value.confirmPassword) {
-      errors.value.confirmPassword = 'Please confirm your password';
-      isValid = false;
-    } else if (data.value.password !== data.value.confirmPassword) {
-      errors.value.confirmPassword = 'Passwords do not match';
-      isValid = false;
     }
 
     if (!isValid) {
@@ -83,22 +71,21 @@ export const useSignUpForm = () => {
 
     isLoading.value = true;
     try {
-      const response = await submitToApi({
+      await submitToApi({
         email: data.value.email,
         password: data.value.password,
         receiveUpdates: data.value.receiveUpdates,
       });
-      console.log('API response:', response);
 
       await router.push('/home');
       return true;
     } catch (error: any) {
-      errors.value.email = error.message || 'Registration failed. Please try again.';
+      formError.value = error.message || 'Registration failed. Please try again.';
       return false;
     } finally {
       isLoading.value = false;
     }
   };
 
-  return { data, errors, isLoading, handleSubmit };
+  return { data, errors, isLoading, formError, handleSubmit };
 };

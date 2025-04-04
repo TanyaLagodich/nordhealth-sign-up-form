@@ -22,7 +22,12 @@
           value="false"
         />
 
-        <provet-button type="submit" expand variant="primary">Sign up</provet-button>
+        <provet-banner v-if="formError" shadow variant="danger">
+          {{ formError }}
+        </provet-banner>
+        <provet-button type="submit" expand variant="primary" :loading="isLoading">
+          Sign up
+        </provet-button>
       </provet-stack>
     </form>
     <p>
@@ -36,5 +41,5 @@
 import { InputPassword } from '@/components/input-password';
 import { useSignUpForm } from '@/composables/sign-up-form';
 
-const { data, errors, isLoading, handleSubmit } = useSignUpForm();
+const { data, errors, isLoading, formError, handleSubmit } = useSignUpForm();
 </script>

@@ -3,7 +3,7 @@ import { Header } from '@/components/header';
 </script>
 
 <template>
-  <provet-layout padding="none">
+  <provet-layout class="n-reset">
     <Header />
     <RouterView />
   </provet-layout>
