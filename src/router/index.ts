@@ -8,22 +8,22 @@ const routes = [
       {
         path: '/sign-up',
         name: 'sign-up',
-        component: () => import('@/views/SignUp.vue'),
+        component: () => import('@/views/sign-up.vue'),
       },
       {
         path: '/sign-in',
         name: 'sign-in',
-        component: () => import('@/views/SignUp.vue'),
+        component: () => import('@/views/sign-up.vue'),
       },
       {
         path: '/home',
         name: 'home',
-        component: () => import('@/views/Home.vue'),
+        component: () => import('@/views/home.vue'),
       },
       {
         path: '/:pathMatch(.*)*',
         name: 'not-found',
-        component: () => import('@/views/NotFound.vue'),
+        component: () => import('@/views/not-found.vue'),
       },
     ],
   },
