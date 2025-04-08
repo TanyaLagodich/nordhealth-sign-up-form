@@ -1,1 +1,0 @@
-import{_ as o}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{a as t,o as n,b as r}from"./index-C703wFYQ.js";const a={};function s(c,e){return n(),t("provet-empty-state",null,e[0]||(e[0]=[r("h2",null,"Page not found",-1)]))}const m=o(a,[["render",s]]);export{m as default};
