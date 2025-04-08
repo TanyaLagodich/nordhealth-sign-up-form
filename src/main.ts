@@ -13,3 +13,10 @@ const app = createApp(App);
 app.use(router);
 app.use(pinia);
 app.mount('#app');
+
+// for working on github pages
+const params = new URLSearchParams(window.location.search);
+const redirect = params.get('redirect');
+if (redirect) {
+  router.replace(redirect);
+}
