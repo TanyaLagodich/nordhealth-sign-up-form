@@ -4,14 +4,7 @@ import { Header } from '@/components/header';
 
 <template>
   <provet-layout class="n-reset">
-    <header />
+    <Header slot="header" />
     <router-view />
   </provet-layout>
 </template>
-
-<style lang="scss">
-#app {
-  padding: 0;
-  width: 100%;
-}
-</style>

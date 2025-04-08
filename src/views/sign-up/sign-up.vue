@@ -1,7 +1,7 @@
 <template>
   <provet-card padding="l" style="max-width: 400px; margin: var(--n-space-xl) auto">
     <h1>Sign up</h1>
-    <form @submit.prevent="handleSubmit">
+    <form class="n-margin-be-m" @submit.prevent="handleSubmit">
       <provet-stack>
         <provet-input
           v-model="data.email"
@@ -32,7 +32,7 @@
     </form>
     <p>
       Already have an account?
-      <routerLink :to="{ name: 'sign-in' }">Login in</routerLink>
+      <router-link :to="{ name: 'sign-in' }">Login in</router-link>
     </p>
   </provet-card>
 </template>

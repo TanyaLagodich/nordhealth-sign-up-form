@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { ref } from 'vue';
-import { mount, flushPromises } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import SignUp from '../sign-up.vue';
 
 const mockData = ref({ email: '', password: '', receiveUpdates: false });
