@@ -8,6 +8,8 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    env:
+      VITE_BASE_URL: /nordhealth-sign-up-form/
 
     steps:
       - name: Checkout code
