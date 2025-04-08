@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 import { InputPassword } from '@/components/input-password';
-import { useSignUpForm } from '@/composables/sign-up-form';
+import { useSignUpForm } from 'src/composables/use-sign-up-form';
 
 const { data, errors, isLoading, formError, handleSubmit } = useSignUpForm();
 </script>
