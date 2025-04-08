@@ -35,12 +35,5 @@ export default defineConfig(({ mode }) => {
         '@': resolve(__dirname, './src'),
       },
     },
-    closeBundle() {
-      const indexPath = resolve(__dirname, 'dist/index.html');
-      const notFoundPath = resolve(__dirname, 'dist/404.html');
-      if (fs.existsSync(indexPath)) {
-        fs.copyFileSync(indexPath, notFoundPath);
-      }
-    },
   };
 });
