@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import type { InputPasswordProps } from './types.ts';
 
-defineProps<{
-  label: string;
-  error?: string;
-}>();
+defineProps<InputPasswordProps>();
 
 const password = defineModel('password');
 
