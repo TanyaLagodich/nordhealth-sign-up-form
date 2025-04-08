@@ -1,1 +1,0 @@
-import{_ as t}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{a as r,o as s,k as n,g as a,l as i,n as l}from"./index-DJWeoV6Y.js";const p={};function m(u,e){const o=l("router-link");return s(),r("p",null,[e[1]||(e[1]=n(" This is a Login page ")),a(o,{to:{name:"sign-up"}},{default:i(()=>e[0]||(e[0]=[n("Sign up")])),_:1})])}const f=t(p,[["render",m]]);export{f as default};
