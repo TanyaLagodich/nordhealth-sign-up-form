@@ -1,3 +1,5 @@
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+
 export const THEMES = {
   LIGHT: 'light',
   LIGHT_HIGH_CONTRAST: 'lightHighContrast',
@@ -9,10 +11,10 @@ export const THEMES = {
 export type ThemeKey = (typeof THEMES)[keyof typeof THEMES];
 
 export const themeMap: Record<Exclude<ThemeKey, 'auto'>, string> = {
-  [THEMES.LIGHT]: '/themes/provet.css',
-  [THEMES.LIGHT_HIGH_CONTRAST]: '/themes/provet-high-contrast.css',
-  [THEMES.DARK]: '/themes/provet-dark.css',
-  [THEMES.DARK_HIGH_CONTRAST]: '/themes/provet-dark-high-contrast.css',
+  [THEMES.LIGHT]: `${base}/themes/provet.css`,
+  [THEMES.LIGHT_HIGH_CONTRAST]: `${base}/themes/provet-high-contrast.css`,
+  [THEMES.DARK]: `${base}/themes/provet-dark.css`,
+  [THEMES.DARK_HIGH_CONTRAST]: `${base}/themes/provet-dark-high-contrast.css`,
 };
 
 export const themeLabels: Record<ThemeKey, string> = {
