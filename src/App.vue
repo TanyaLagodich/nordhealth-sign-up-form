@@ -4,8 +4,8 @@ import { Header } from '@/components/header';
 
 <template>
   <provet-layout class="n-reset">
-    <Header />
-    <RouterView />
+    <header />
+    <router-view />
   </provet-layout>
 </template>
 

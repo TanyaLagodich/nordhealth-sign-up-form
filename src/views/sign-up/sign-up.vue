@@ -14,12 +14,12 @@
         >
           <provet-icon slot="start" name="interface-email" />
         </provet-input>
-        <InputPassword v-model="data.password" label="Password" :error="errors.password" />
+        <input-password v-model="data.password" label="Password" :error="errors.password" />
 
         <provet-checkbox
+          v-model="data.receiveUpdates"
           label="I’d like to receive occasional product updates and announcements."
           size="s"
-          value="false"
         />
 
         <provet-banner v-if="formError" shadow variant="danger">
@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 import { InputPassword } from '@/components/input-password';
-import { useSignUpForm } from 'src/composables/use-sign-up-form';
+import { useSignUpForm } from '@/composables/use-sign-up-form';
 
 const { data, errors, isLoading, formError, handleSubmit } = useSignUpForm();
 </script>
