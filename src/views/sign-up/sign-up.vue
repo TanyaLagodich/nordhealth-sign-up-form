@@ -1,6 +1,6 @@
 <template>
   <provet-card padding="l" style="max-width: 400px; margin: var(--n-space-xl) auto">
-    <h1>Sign up</h1>
+    <h1 class="n-margin-be-m">Sign up</h1>
     <form class="n-margin-be-m" @submit.prevent="handleSubmit">
       <provet-stack>
         <provet-input
@@ -14,7 +14,7 @@
         >
           <provet-icon slot="start" name="interface-email" />
         </provet-input>
-        <input-password v-model="data.password" label="Password" :error="errors.password" />
+        <input-password v-model="data.password" label="Password" :error="errors.password" @input="errors.password = undefined" />
 
         <provet-checkbox
           v-model="data.receiveUpdates"
