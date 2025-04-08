@@ -24,14 +24,14 @@ export const useThemeStore = defineStore('theme', () => {
   };
 
   const resolvedTheme = computed(() => {
-    if (currentTheme.value === 'auto') {
+    if (currentTheme.value === THEMES.AUTO) {
       return getPreferredTheme();
     }
     return currentTheme.value;
   });
 
   const isDarkTheme = computed(() => {
-    return [THEMES.DARK, THEMES.DARK_HIGH_CONTRAST].includes(resolvedTheme.value);
+    return resolvedTheme.value === THEMES.DARK || resolvedTheme.value === THEMES.DARK_HIGH_CONTRAST;
   });
 
   function applyTheme(theme: ThemeKey) {

@@ -23,5 +23,5 @@ watch(
 </script>
 
 <template>
-  <img :src="logoSrc" alt="Provet Cloud Logo" />
+  <img v-if="logoSrc" :src="logoSrc" alt="Provet Cloud Logo" />
 </template>

@@ -11,15 +11,20 @@ const { applyTheme } = themeStore;
   <provet-header slot="header">
     <Logo />
 
-  <provet-dropdown slot="end" size="s">
-    <provet-button slot="toggle">Change theme</provet-button>
-    <provet-dropdown-item
-      v-for="theme in THEMES"
-      :key="theme"
-      @click="() => applyTheme(theme)"
-    >
-      {{ themeLabels[theme] }}
-    </provet-dropdown-item>
-  </provet-dropdown>
-</provet-header>
+    <provet-dropdown slot="end" size="s">
+      <provet-button slot="toggle" aria-haspopup="true" size="m"> Change theme </provet-button>
+      <provet-dropdown-item
+        v-for="theme in THEMES"
+        :key="theme"
+        :aria-pressed="theme === themeStore.currentTheme"
+        role="menuitemradio"
+        :class="{ 'n-color-accent': theme === themeStore.currentTheme }"
+        @click="applyTheme(theme)"
+      >
+        <span :class="{ 'n-color-text-on-accent': theme === themeStore.currentTheme }">
+          {{ themeLabels[theme] }}
+        </span>
+      </provet-dropdown-item>
+    </provet-dropdown>
+  </provet-header>
 </template>

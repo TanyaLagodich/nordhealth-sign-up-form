@@ -1,4 +1,4 @@
-import { mount, VueWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { createTestingPinia } from '@pinia/testing';
 import { describe, vi, it, expect, beforeEach } from 'vitest';
 import Header from '../header.vue';
@@ -20,7 +20,7 @@ describe('Header', () => {
       },
     });
 
-  let wrapper: VueWrapper<typeof Header>;
+  let wrapper: ReturnType<typeof createWrapper>
   describe('rendering', () => {
     beforeEach(() => {
       wrapper = createWrapper();
