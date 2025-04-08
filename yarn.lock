@@ -390,7 +390,7 @@
     natural-compare "^1.4.0"
     ts-api-utils "^2.0.1"
 
-"@typescript-eslint/parser@^8.0.0 || ^8.0.0-alpha.0", "@typescript-eslint/parser@^8.29.1":
+"@typescript-eslint/parser@^8.0.0 || ^8.0.0-alpha.0":
   version "8.29.1"
   resolved "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.29.1.tgz"
   integrity sha512-zczrHVEqEaTwh12gWBIJWj8nx+ayDcCJs06yoNMY0kwjMWDM6+kppljY+BxWI06d2Ja+h4+WdufDcwMnnMEWmg==
@@ -2050,7 +2050,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@>=3.0.0:
+prettier@^3.5.3, prettier@>=3.0.0:
   version "3.5.3"
   resolved "https://registry.npmjs.org/prettier/-/prettier-3.5.3.tgz"
   integrity sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==
