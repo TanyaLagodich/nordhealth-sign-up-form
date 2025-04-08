@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import fs from 'fs';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -33,6 +34,13 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': resolve(__dirname, './src'),
       },
+    },
+    closeBundle() {
+      const indexPath = resolve(__dirname, 'dist/index.html');
+      const notFoundPath = resolve(__dirname, 'dist/404.html');
+      if (fs.existsSync(indexPath)) {
+        fs.copyFileSync(indexPath, notFoundPath);
+      }
     },
   };
 });
