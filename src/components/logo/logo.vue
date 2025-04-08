@@ -33,10 +33,10 @@ watch(
 
 <template>
   <img
-      v-if="logoSrc"
-      :src="logoSrc"
-      alt="Provet Cloud Logo"
-      :width="logoSize.width"
-      :height="logoSize.height"
+    v-if="logoSrc"
+    :src="logoSrc"
+    alt="Provet Cloud Logo"
+    :width="logoSize.width"
+    :height="logoSize.height"
   />
 </template>

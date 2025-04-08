@@ -20,7 +20,7 @@ describe('Header', () => {
       },
     });
 
-  let wrapper: ReturnType<typeof createWrapper>
+  let wrapper: ReturnType<typeof createWrapper>;
   describe('rendering', () => {
     beforeEach(() => {
       wrapper = createWrapper();

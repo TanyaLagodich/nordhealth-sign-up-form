@@ -4,75 +4,81 @@ import { useThemeStore } from '../index';
 import { THEMES, themeMap } from '../constants';
 
 describe('useThemeStore', () => {
-    beforeEach(() => {
-        setActivePinia(createPinia());
-        localStorage.clear();
+  beforeEach(() => {
+    setActivePinia(createPinia());
+    localStorage.clear();
+  });
+
+  describe('non auto themes', () => {
+    it('applies each non-auto theme correctly', () => {
+      const store = useThemeStore();
+
+      const themes = Object.values(THEMES).filter((theme) => theme !== THEMES.AUTO);
+
+      themes.forEach((theme) => {
+        document.head.innerHTML = '';
+        store.applyTheme(theme);
+
+        expect(store.currentTheme).toBe(theme);
+      });
     });
 
-    describe('non auto themes', () => {
-        it('applies each non-auto theme correctly', () => {
-            const store = useThemeStore();
+    it('sets theme and updates <link> + localStorage', () => {
+      const store = useThemeStore();
+      const themes = Object.values(THEMES).filter((theme) => theme !== THEMES.AUTO);
 
-            const themes = Object.values(THEMES).filter((theme) => theme !== THEMES.AUTO);
+      themes.forEach((theme) => {
+        store.applyTheme(theme);
+        const link = document.getElementById('theme-style') as HTMLLinkElement;
+        expect(link).toBeTruthy();
+        expect(link.href).toContain(themeMap[theme]);
+      });
+    });
+  });
 
-            themes.forEach((theme) => {
-                document.head.innerHTML = '';
-                store.applyTheme(theme);
+  describe('auto theme', () => {
+    it('resolvedTheme returns correct value when system prefers light', () => {
+      vi.stubGlobal(
+        'matchMedia',
+        vi.fn().mockImplementation(() => ({
+          matches: false,
+        }))
+      );
 
-                expect(store.currentTheme).toBe(theme);
-            });
-        });
+      const store = useThemeStore();
+      store.applyTheme(THEMES.AUTO);
 
-        it('sets theme and updates <link> + localStorage', () => {
-            const store = useThemeStore();
-            const themes = Object.values(THEMES).filter((theme) => theme !== THEMES.AUTO);
-
-            themes.forEach((theme) => {
-                store.applyTheme(theme);
-                const link = document.getElementById('theme-style') as HTMLLinkElement;
-                expect(link).toBeTruthy();
-                expect(link.href).toContain(themeMap[theme]);
-            });
-        });
+      expect(store.resolvedTheme).toBe(THEMES.LIGHT);
+      expect(store.isDarkTheme).toBe(false);
     });
 
-    describe('auto theme', () => {
-        it('resolvedTheme returns correct value when system prefers light', () => {
-            vi.stubGlobal('matchMedia', vi.fn().mockImplementation(() => ({
-                matches: false,
-            })));
+    it('resolvedTheme returns correct value when system prefers dark', () => {
+      vi.stubGlobal(
+        'matchMedia',
+        vi.fn().mockImplementation(() => ({
+          matches: true,
+        }))
+      );
 
-            const store = useThemeStore();
-            store.applyTheme(THEMES.AUTO);
+      const store = useThemeStore();
+      store.applyTheme(THEMES.AUTO);
 
-            expect(store.resolvedTheme).toBe(THEMES.LIGHT);
-            expect(store.isDarkTheme).toBe(false);
-        });
-
-        it('resolvedTheme returns correct value when system prefers dark', () => {
-            vi.stubGlobal('matchMedia', vi.fn().mockImplementation(() => ({
-                matches: true,
-            })));
-
-            const store = useThemeStore();
-            store.applyTheme(THEMES.AUTO);
-
-            expect(store.resolvedTheme).toBe(THEMES.DARK);
-            expect(store.isDarkTheme).toBe(true);
-        });
+      expect(store.resolvedTheme).toBe(THEMES.DARK);
+      expect(store.isDarkTheme).toBe(true);
     });
+  });
 
-    describe('local storage', () => {
-        it('initTheme applies theme from localStorage', () => {
-            localStorage.setItem('theme', THEMES.LIGHT_HIGH_CONTRAST);
-            const store = useThemeStore();
+  describe('local storage', () => {
+    it('initTheme applies theme from localStorage', () => {
+      localStorage.setItem('theme', THEMES.LIGHT_HIGH_CONTRAST);
+      const store = useThemeStore();
 
-            store.initTheme();
+      store.initTheme();
 
-            expect(store.currentTheme).toBe(THEMES.LIGHT_HIGH_CONTRAST);
+      expect(store.currentTheme).toBe(THEMES.LIGHT_HIGH_CONTRAST);
 
-            const link = document.getElementById('theme-style') as HTMLLinkElement;
-            expect(link.href).toContain(themeMap[THEMES.LIGHT_HIGH_CONTRAST]);
-        });
-    })
+      const link = document.getElementById('theme-style') as HTMLLinkElement;
+      expect(link.href).toContain(themeMap[THEMES.LIGHT_HIGH_CONTRAST]);
+    });
+  });
 });

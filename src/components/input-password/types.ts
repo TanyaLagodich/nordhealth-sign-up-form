@@ -1,4 +1,4 @@
 export interface InputPasswordProps {
-    label: string;
-    error?: string;
-};
+  label: string;
+  error?: string;
+}
