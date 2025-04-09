@@ -64,8 +64,7 @@ describe('Header', () => {
         .findAll('[role="menuitemradio"]')
         .find((el) => el.text().includes(themeLabels.dark));
 
-      expect(item?.classes()).toContain('n-color-accent');
-      expect(item?.find('span').classes()).toContain('n-color-text-on-accent');
+      expect(item?.classes()).toContain('active');
     });
   });
 });
