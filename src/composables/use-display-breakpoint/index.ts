@@ -7,7 +7,6 @@ export function useBreakpoint() {
   const lg = ref(false);
 
   const update = () => {
-    console.log('update', window.innerWidth, window.innerWidth);
     width.value = window.innerWidth;
     sm.value = width.value <= 480;
     md.value = width.value <= 768;
