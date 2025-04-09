@@ -22,24 +22,27 @@ A small demo application built with **Vue 3**, **TypeScript**, **Pinia**, and th
 ## ✨ Features
 
 - ✅ **Sign Up Page**
-    - Fields: Email, Password
-    - Simple client-side validation
-    - Checkbox to opt-in for product updates (value is tracked, but not sent anywhere)
-    - Simulated API request on form submission
-    - Field-level and global error handling
-    - Redirects to `/home` on successful sign-up
+
+  - Fields: Email, Password
+  - Simple client-side validation
+  - Checkbox to opt-in for product updates (value is tracked, but not sent anywhere)
+  - Simulated API request on form submission
+  - Field-level and global error handling
+  - Redirects to `/home` on successful sign-up
 
 - ✅ **Backend Error Simulation**
-    - If you enter `test@example.com` as the email, a fake server error is triggered:
-      ```
-      This email is already registered
-      ```
+
+  - If you enter `test@example.com` as the email, a fake server error is triggered:
+    ```
+    This email is already registered
+    ```
 
 - ✅ **Log In Page**
-    - Present but currently empty
+
+  - Present but currently empty
 
 - ✅ **Not Found Page**
-    - Basic fallback page for unknown routes
+  - Basic fallback page for unknown routes
 
 ---
 
@@ -51,6 +54,7 @@ Install dependencies and run the dev server:
 yarn install
 yarn dev
 ```
+
 Run tests:
 
 ```bash
@@ -58,11 +62,13 @@ yarn test
 ```
 
 Lint the code:
+
 ```bash
 yarn lint
 ```
 
 Build the project:
+
 ```bash
 yarn build
 ```
@@ -70,6 +76,7 @@ yarn build
 ---
 
 ## 🧪 About the API Simulation
+
 The API logic is mocked to simulate real-world backend behavior.
 This setup is intended to demonstrate frontend error handling.
 You can easily replace it with real backend integration later.
@@ -79,4 +86,5 @@ Use test@example.com to simulate a backend validation error.
 ---
 
 ## 🌐 Deployment
+
 The app is automatically deployed to GitHub Pages on every push to the main branch.

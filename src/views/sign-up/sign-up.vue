@@ -14,7 +14,12 @@
         >
           <provet-icon slot="start" name="interface-email" />
         </provet-input>
-        <input-password v-model="data.password" label="Password" :error="errors.password" @input="errors.password = undefined" />
+        <input-password
+          v-model="data.password"
+          label="Password"
+          :error="errors.password"
+          @input="errors.password = undefined"
+        />
 
         <provet-checkbox
           v-model="data.receiveUpdates"
