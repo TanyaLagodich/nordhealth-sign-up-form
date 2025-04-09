@@ -1,15 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./">
+    <meta http-equiv="refresh" content="0; url=./" />
     <script>
-        const path = location.pathname.replace('/nordhealth-sign-up-form', '');
-        location.replace('/nordhealth-sign-up-form/?redirect=' + path + location.search + location.hash);
+      const path = location.pathname.replace('/nordhealth-sign-up-form', '');
+      location.replace(
+        '/nordhealth-sign-up-form/?redirect=' + path + location.search + location.hash
+      );
     </script>
-</head>
-<body>
-Redirecting...
-</body>
+  </head>
+  <body>
+    Redirecting...
+  </body>
 </html>
