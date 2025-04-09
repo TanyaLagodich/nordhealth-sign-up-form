@@ -24,13 +24,23 @@ const dropdownSize = computed(() => (sm.value ? 's' : 'm'));
         :key="theme"
         :aria-pressed="theme === themeStore.currentTheme"
         role="menuitemradio"
-        :class="{ 'n-color-accent': theme === themeStore.currentTheme }"
+        :class="{ active: theme === themeStore.currentTheme }"
         @click="applyTheme(theme)"
       >
-        <span :class="{ 'n-color-text-on-accent': theme === themeStore.currentTheme }">
-          {{ themeLabels[theme] }}
-        </span>
+        {{ themeLabels[theme] }}
       </provet-dropdown-item>
     </provet-dropdown>
   </provet-header>
 </template>
+
+<style>
+provet-dropdown-item:not(.active):hover {
+  --n-dropdown-item-background-color: var(--n-color-active);
+  --n-dropdown-item-color: var(--n-color-text);
+}
+
+provet-dropdown-item.active {
+  --n-dropdown-item-background-color: var(--n-color-accent);
+  --n-dropdown-item-color: var(--n-color-text-on-accent);
+}
+</style>

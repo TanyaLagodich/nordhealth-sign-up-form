@@ -25,7 +25,7 @@
           label="I’d like to receive occasional product updates and announcements."
           size="s"
           :checked="data.receiveUpdates"
-          @input="() => data.receiveUpdates = !data.receiveUpdates"
+          @input="() => (data.receiveUpdates = !data.receiveUpdates)"
         />
 
         <provet-banner v-if="formError" shadow variant="danger">
